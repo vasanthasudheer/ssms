@@ -1,0 +1,42 @@
+<h2>Users Page</h2>
+
+    <h2>User Management</h2>
+
+    <form [formGroup]="userForm" (ngSubmit)="saveUser()">
+      <input formControlName="userName" placeholder="Username" required />
+      <input formControlName="firstName" placeholder="First Name" required />
+      <input formControlName="lastName" placeholder="Last Name" required />
+      <input formControlName="email" placeholder="Email" type="email" required />
+      <input formControlName="cell" placeholder="Cell Number" required />
+      <input formControlName="password" placeholder="Password" type="password" required />
+
+      <button type="submit">{{ editMode ? 'Update' : 'Add' }} User</button>
+    </form>
+   <h2>User List</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>UserId</th>
+      <th>UserName</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Email</th>
+      <th>Cell</th>
+      <th>Password</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.userId }}</td>
+      <td>{{ user.userName }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.cell }}</td>
+      <td>{{ user.password }}</td>
+      <button (click)="editUser(user)">Edit</button>
+        <button (click)="deleteUser(user.userId)">Delete</button>
+    </tr>
+  </tbody>
+</table>
