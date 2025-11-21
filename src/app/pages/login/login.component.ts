@@ -24,7 +24,7 @@ export class LoginComponent {
       next: (res) => {
         if (res.message === 'Login Success') {
           console.log(" Login success, navigating to /home...");
-          this.router.navigateByUrl('/home');  
+          this.router.navigateByUrl('home');  
         } else {
           alert(res.message);
         }
@@ -41,3 +41,4 @@ export class Login {
   UserName: string = '';
   Password: string = '';
 }
+
